@@ -1,0 +1,43 @@
+﻿Lab: Getting Started with Kubernetes Engine
+
+Task 1: Confirm that needed APIs are enabled 	
+In the GCP Console, hover through the Navigation menu, click APIs & Services. 	
+Scroll down in the list of enabled APIs, and confirm that both of these APIs are enabled: 		
+Kubernetes Engine API 		
+Container Registry API 	
+ 
+
+2: Start a Kubernetes Engine cluster 	
+In GCP console, on the top right toolbar, Activate the Cloud Shel l >-
+Click Continue.. 	
+
+Run the command: 
+Export MY_ZONE=
+Substitute the zone that was provided in this lab credentials		
+export MY_ZONE=us-central1-a 	
+
+Start a Kubernetes cluster managed by Kubernetes Engine. Name the cluster webfrontend and configure it to run 2 nodes: 		
+gcloud container clusters create webfrontend --zone $MY_ZONE --num-nodes 2 	
+
+After the cluster is created, check your installed version of Kubernetes using the kubectl version command: 		
+kubectl version 	
+
+View your running nodes in the GCP Console. 
+
+ (Nginx is a popular web server.) 	
+kubectl create deploy nginx --image=nginx:1.17 	
+
+View the pod running the nginx container, run the command below...
+ kubectl get pods 	
+Expose the nginx container to the Internet, run the command below... 		
+kubectl expose deployment nginx --port 80 --type LoadBalancer 	
+View the new service, run the command below... 		
+kubectl get services 	
+
+Scale up the number of pods running on your service using the command below... 
+kubectl scale deployment nginx --replicas 3 	
+
+Confirm that Kubernetes has updated the number of pods using the command below... 		
+kubectl get pods 	
+
+Confirm that your external IP address has not changed by running this command... 		kubectl get services

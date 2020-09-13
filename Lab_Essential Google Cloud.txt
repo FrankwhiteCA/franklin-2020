@@ -1,0 +1,28 @@
+﻿Lab:Essential Google Cloud Infrastructure: Foundation.
+ Objective: Expand a Subnet
+Overview: A custom subnet mask created /29 mask. 
+A slash 29(/29) subnet mask provides you with eight(8) addresses. Four (4) are reserved by GCP and the other four(4) for your virtual machine(VM) instances.
+Tasks:
+1.sign into the Google Cloud Platform
+2. Create four (4) VM instances,  using us-central1-a (zone).
+3. Expand the subnet
+Procedural steps:
+1-  sign in with your credentials provided by qwiklab for this lab.
+Note:once you click the start Lab, there's no pause button, you can only on End Lab when you've completed the task or  the lab stops when the time assigned elapses. Click start Lab when ready.
+2. Create VM instances.
+From Google Cloud Platform (=)menu,Click Compute Engine>VM instances.
+Click create instances,you can name your instances as thus:instance-1, instance-2, instance-3, instance-4.
+3. Expanding the subnet.
+- click on the instance-1 internal IP address (nico) to display the network interface details.
+- click on subnet, which gives you option for modification.
+Now try to create new instance.
+From GCP console interface.
+Click on create instance,First  generation as machine-type: change Machine-type "f1-micro"
+Click create.
+The instance creation failed due to the IP space has been exhausted.
+Now retry to create the VM instances by going back to <---- =GCP console interface >Compute Engine>VM instances.
+Click on instance-1  internal IP (nic0) column,Click Edit to change the IP configuration.
+Delete /29 and type /23 and click SAVE.
+Now the /23  will accommodate up to 500 instances.
+On the notification pen, if click on,it shows update is successful and you can see see a retry option to recreate your VM instance.
+Click on it,then go back<----GCP console >Compute Engine>VM instance and refresh, the expansion will be added to the number of your VM instances.
