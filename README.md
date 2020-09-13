@@ -1,1 +1,1 @@
-# franklin-2020
+# franklin's-gcp-gads2020-Lab translation
